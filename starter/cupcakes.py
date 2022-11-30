@@ -1,5 +1,6 @@
 from abc import ABC, abstractmethod
 from pprint import pprint
+import csv
 
 def read_csv(file):
     with open("sample.csv") as csvfile:
@@ -11,7 +12,7 @@ read_csv("sample.csv")
 
 
 
-class Cupcake:
+class Cupcake(ABC):
     size = "regular"
     def __init__(self, name, cake, frosting, filling, price):
         self.name = name
@@ -24,7 +25,8 @@ class Cupcake:
     def add_sprinkles(self, *args):
         for sprinkle in args:
             self.sprinkles.append(sprinkle)
-
+    
+    @ abstractmethod 
     def calculate_price(self, quantity):
         return quantity * self.price
 
