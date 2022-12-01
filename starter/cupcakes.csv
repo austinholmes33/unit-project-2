@@ -1,0 +1,5 @@
+size,name,cake,frosting,filling,price,sprinkles
+Medium,medium triple chocolate,chocolate,chocolate,,3.49,[]
+Mini,mini cookies and cream,chocolate,vanilla,,2.0,"['oreo crumbs', 'vanilla']"
+Mini,mini chocolate,chocolate,vanilla,,1.99,[]
+Mini,mini vanilla,vanilla,vanilla,,1.5,['chocolate']

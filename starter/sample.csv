@@ -1,6 +1,5 @@
-size,name,price,flavor,frosting,sprinkles,filling
-regular,Stars and Stripes,2.99,Vanilla,Vanilla,"['Red', 'White', 'Blue', 'Chocolate']",Chocolate
-mini,Oreo,0.99,Chocolate,Cookies and Cream,['Oreo pieces'],
-large,Red Velvet,3.99,Red Velvet,Cream Cheese,[],
-regular,Triple Chocolate,2.99,Chocolate,Chocolate,[],Chocolate
-regular,Strawberry,2.99,Stawberry,Vanilla,[],
+size,name,cake,frosting,filling,price,sprinkles
+Medium,medium triple chocolate,chocolate,chocolate,,3.49,[]
+Mini,mini cookies and cream,chocolate,vanilla,,2.0,"['oreo crumbs', 'vanilla']"
+Mini,mini chocolate,chocolate,vanilla,,1.99,[]
+Mini,mini vanilla,vanilla,vanilla,,1.5,['chocolate']

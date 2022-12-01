@@ -11,6 +11,16 @@
     <title>All Cupcakes</title>
 </head>
 <body>
+    <h3>All Cupcakes</h3>
+
+    {% for cupcake in cupcakes %}
+        <h3>{{ cupcake["name"] }}</h3>
+        <h4>Flavor: {{ cucpake["flavor"] }}</h4>
+        <h4>Frosting: {{ cupcake["frosting"] }}</h4>
+        <h4><b>Price: ${{ cupcake["price"] }}</b></h4>
+    {% endfor %}
+
+</body>
     
 </body>
 </html>
