@@ -14,11 +14,10 @@ read_csv("sample.csv")
 
 class Cupcake(ABC):
     size = "regular"
-    def __init__(self, name, cake, frosting, filling, price):
+    def __init__(self, name, cake, frosting, price):
         self.name = name
         self.cake = cake
         self.frosting = frosting
-        self.filling = filling
         self.sprinkles = []
         self.price = price
 
@@ -60,10 +59,11 @@ class Mini(Cupcake):
 class Large(Cupcake):
     size = "Large"
 
-    def __init__(self, name, cake, frosting, price):
+    def __init__(self, name, cake, frosting, filling, price):
         self.name = name
         self.cake = cake
         self.frosting = frosting
+        self.filling = filling
         self.price = price
         self.sprinkles = []
 
