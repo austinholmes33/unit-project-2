@@ -31,17 +31,17 @@ class Cupcake(ABC):
         return quantity * self.price
 
 # instantiation
-triple_chocolate = Cupcake('triple chocolate', 'chocolate', 'chocolate', 'chocolate', 2.75)
+# triple_chocolate = Cupcake('triple chocolate', 'chocolate', 'chocolate', 'chocolate', 2.75)
 
-cookies_and_cream = Cupcake('cookies and cream', 'chocolate', 'vanilla', 'oreo', 2.99)
+# cookies_and_cream = Cupcake('cookies and cream', 'chocolate', 'vanilla', 'oreo', 2.99)
 
-cookies_and_cream.frosting = 'chocolate'
-cookies_and_cream.filling = 'vanilla'
+# cookies_and_cream.frosting = 'chocolate'
+# cookies_and_cream.filling = 'vanilla'
 
-cookies_and_cream.add_sprinkles('oreo crumbs', 'vanilla')
+# cookies_and_cream.add_sprinkles('oreo crumbs', 'vanilla')
 
 class Mini(Cupcake):
-    size = "mini"
+    size = "Mini"
 
     def __init__(self, name, cake, frosting, price):
         self.name = name
@@ -53,14 +53,37 @@ class Mini(Cupcake):
     def calculate_price(self, quantity):
         return super().calculate_price(quantity)
 
+class Large(Cupcake):
+    size = "Large"
+
+    def __init__(self, name, cake, frosting, price):
+        self.name = name
+        self.cake = cake
+        self.frosting = frosting
+        self.price = price
+        self.sprinkles = []
+
+class Medium(Cupcake):
+    size = "Medium"
+
+    def __init__(self, name, cake, frosting, price):
+        self.name = name
+        self.cake = cake
+        self.frosting = frosting
+        self.price = price
+        self.sprinkles = []
+
 mini_chocolate = Mini('mini chocolate', 'chocolate', 'vanilla', 1.99)
 mini_vanilla = Mini("mini vanilla", "vanilla", "vanilla", 1.50)
+mini_cookies_and_cream = Mini("mini cookies and cream", "chocolate", "vanilla", 2.00)
+mini_cookies_and_cream.add_sprinkles("oreo crumbs", "vanilla")
+medium_triple_chocolate = Medium("medium triple chocolate", "chocolate", "chocolate", "chocolate", 3.49)
 
 mini_vanilla.add_sprinkles("chocolate")
 
 cupcake_list = [
-    triple_chocolate,
-    cookies_and_cream,
+    medium_triple_chocolate,
+    mini_cookies_and_cream,
     mini_chocolate,
     mini_vanilla
 ]
@@ -89,3 +112,5 @@ def add_cupcake(file, cupcake):
             writer.writerow({"size": cupcake.size, "name": cupcake.name, "cake": cupcake.cake, "frosting": cupcake.frosting, "filling": cupcake.filling, "price": cupcake.price, "sprinkles": cupcake.sprinkles})
         else:
             writer.writerow({"size": cupcake.size, "name": cupcake.name, "cake": cupcake.cake, "frosting": cupcake.frosting, "price": cupcake.price, "sprinkles": cupcake.sprinkles})
+
+write_new_csv("cupcakes.csv", cupcake_list)
