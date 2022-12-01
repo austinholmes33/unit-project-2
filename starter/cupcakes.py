@@ -54,10 +54,15 @@ class Mini(Cupcake):
         return super().calculate_price(quantity)
 
 mini_chocolate = Mini('mini chocolate', 'chocolate', 'vanilla', 1.99)
+mini_vanilla = Mini("mini vanilla", "vanilla", "vanilla", 1.50)
+
+mini_vanilla.add_sprinkles("chocolate")
 
 cupcake_list = [
     triple_chocolate,
-    cookies_and_cream
+    cookies_and_cream,
+    mini_chocolate,
+    mini_vanilla
 ]
 
 def write_new_csv(file, cupcakes):
@@ -84,5 +89,3 @@ def add_cupcake(file, cupcake):
             writer.writerow({"size": cupcake.size, "name": cupcake.name, "cake": cupcake.cake, "frosting": cupcake.frosting, "filling": cupcake.filling, "price": cupcake.price, "sprinkles": cupcake.sprinkles})
         else:
             writer.writerow({"size": cupcake.size, "name": cupcake.name, "cake": cupcake.cake, "frosting": cupcake.frosting, "price": cupcake.price, "sprinkles": cupcake.sprinkles})
-
-print(mini_chocolate)
