@@ -11,7 +11,13 @@
     <title>All Cupcakes</title>
 </head>
 <body>
+    <div class="cupcakes-header">
     <h3>All Cupcakes</h3>
+    </div>
+
+    <div class="cupcakes-home-anchor">
+    <a href="/">Home</a>
+    </div>
 
     {% for cupcake in cupcakes %}
         <h3>{{ cupcake["name"] }}</h3>

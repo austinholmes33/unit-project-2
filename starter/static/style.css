@@ -10,6 +10,45 @@ body {
     box-shadow: 2px 2px 0px black;
 }
 
+.cupcakes-header {
+    display: flex;
+    justify-content: center;
+    border: solid black 5px;
+    box-shadow: 2px 2px 0px black;
+}
+
+.order-header {
+    display: flex;
+    justify-content: center;
+    border: solid black 5px;
+    box-shadow: 2px 2px 0px black;
+}
+
+.indivudal-cupcake-header {
+    display: flex;
+    justify-content: center;
+    border: solid black 5px;
+    box-shadow: 2px 2px 0px black;
+}
+
+.order-home-anchor {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+}
+
+.individual-cupcake-home-anchor {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+}
+
+.cupcakes-home-anchor {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+}
+
 .anchor-1 {
     display: flex;
     justify-content: center;
