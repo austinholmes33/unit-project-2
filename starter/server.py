@@ -11,9 +11,9 @@ def home():
 def all_cupcakes():
     return render_template("cupcakes.html", cupcakes = get_cupcakes("cupcakes.csv"))
 
-# @app.route("/cupcake_individual")
-# def individual_cupcake():
-    # return render_template("individual_cupcake.html", cupcakes = find_cupcake("cupcakes.csv", ))
+@app.route("/cupcake_individual")
+def individual_cupcake():
+    return render_template("individual_cupcake.html")
 
 @app.route("/order")
 def order():
