@@ -3,7 +3,7 @@ from pprint import pprint
 import csv
 
 def read_csv(file):
-    with open("sample.csv") as csvfile:
+    with open(file, "r") as csvfile:
         reader = csv.DictReader(csvfile)
 
         for row in reader:
@@ -43,11 +43,7 @@ class Mini(Cupcake):
     size = "Mini"
 
     def __init__(self, name, cake, frosting, price):
-        self.name = name
-        self.cake = cake
-        self.frosting = frosting
-        self.price = price
-        self.sprinkles = []
+        super().__init__(name, cake, frosting, price)
 
     def add_sprinkles(self, *args):
         for sprinkle in args:
@@ -60,12 +56,8 @@ class Large(Cupcake):
     size = "Large"
 
     def __init__(self, name, cake, frosting, filling, price):
-        self.name = name
-        self.cake = cake
-        self.frosting = frosting
+        super().__init__(name, cake, frosting, price)
         self.filling = filling
-        self.price = price
-        self.sprinkles = []
 
     def add_sprinkles(self, *args):
         for sprinkle in args:
@@ -78,11 +70,7 @@ class Medium(Cupcake):
     size = "Medium"
 
     def __init__(self, name, cake, frosting, price):
-        self.name = name
-        self.cake = cake
-        self.frosting = frosting
-        self.price = price
-        self.sprinkles = []
+        super().__init__(name, cake, frosting, price)
 
     def add_sprinkles(self, *args):
         for sprinkle in args:
@@ -99,15 +87,22 @@ mini_vanilla.add_sprinkles("chocolate")
 mini_cookies_and_cream = Mini("mini cookies and cream", "chocolate", "vanilla", 2.00)
 mini_cookies_and_cream.add_sprinkles("oreo crumbs", "vanilla")
 
-medium_triple_chocolate = Medium("medium triple chocolate", "chocolate", "chocolate", 3.49)
+medium_triple_chocolate = Medium("medium triple chocolate", "chocolate", "chocolate", 3.50)
+
+medium_vanilla = Medium("medium vanilla", "vanilla", "chocolate", 3.00)
+medium_vanilla.add_sprinkles("chocolate")
+
+large_red_velvet = Large("large red velvet", "red velvet", "cream cheese", None, 4.50)
 
 
 
 cupcake_list = [
     medium_triple_chocolate,
+    medium_vanilla,
     mini_cookies_and_cream,
     mini_chocolate,
-    mini_vanilla
+    mini_vanilla,
+    large_red_velvet
 ]
 
 def write_new_csv(file, cupcakes):
@@ -123,7 +118,7 @@ def write_new_csv(file, cupcakes):
             else:
                 writer.writerow({"size": cupcake.size, "name": cupcake.name, "cake": cupcake.cake, "frosting": cupcake.frosting, "price": cupcake.price, "sprinkles": cupcake.sprinkles})
 
-write_new_csv("sample.csv", cupcake_list)
+# write_new_csv("sample.csv", cupcake_list)
 
 def add_cupcake(file, cupcake):
     with open(file, "a", newline="\n") as csvfile:
@@ -135,7 +130,7 @@ def add_cupcake(file, cupcake):
         else:
             writer.writerow({"size": cupcake.size, "name": cupcake.name, "cake": cupcake.cake, "frosting": cupcake.frosting, "price": cupcake.price, "sprinkles": cupcake.sprinkles})
 
-write_new_csv("cupcakes.csv", cupcake_list)
+# add_cupcake("cupcakes.csv", medium_vanilla)
 
 def get_cupcakes(file):
     with open(file) as csvfile:

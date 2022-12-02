@@ -2,3 +2,10 @@ body {
     background-color: antiquewhite;
     font-family: 'Source Code Pro', monospace;
 }
+
+.content-container {
+    display: flex;
+    justify-content: center;
+    border: solid black 5px;
+    box-shadow: 2px 2px 0px black;
+}
