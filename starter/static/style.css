@@ -9,3 +9,21 @@ body {
     border: solid black 5px;
     box-shadow: 2px 2px 0px black;
 }
+
+.anchor-1 {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+}
+
+.anchor-2 {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+}
+
+.anchor-3 {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+}
