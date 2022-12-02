@@ -19,5 +19,15 @@ def individual_cupcake():
 def order():
     return render_template("order.html")
 
+@app.route("/add_cupcake/<name>")
+def add_cupcake(name):
+    cupcake = find_cupcake("cupcakes.csv", name)
+
+    if cupcake:
+        add_cupcake_dictionary("orders.csv", cupcake)
+        return redirect(url_for("home"))
+    else:
+        return "Sorry, cupcake not found."
+
 if __name__ == "__main__":
     app.run(debug = True, port = 8000, host = "localhost")

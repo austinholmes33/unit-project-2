@@ -7,28 +7,28 @@ body {
     display: flex;
     justify-content: center;
     border: solid black 5px;
-    box-shadow: 2px 2px 0px black;
+    box-shadow: 2px 2px 5px black;
 }
 
 .cupcakes-header {
     display: flex;
     justify-content: center;
     border: solid black 5px;
-    box-shadow: 2px 2px 0px black;
+    box-shadow: 2px 2px 5px black;
 }
 
 .order-header {
     display: flex;
     justify-content: center;
     border: solid black 5px;
-    box-shadow: 2px 2px 0px black;
+    box-shadow: 2px 2px 5px black;
 }
 
 .indivudal-cupcake-header {
     display: flex;
     justify-content: center;
     border: solid black 5px;
-    box-shadow: 2px 2px 0px black;
+    box-shadow: 2px 2px 5px black;
 }
 
 .order-home-anchor {

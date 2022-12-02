@@ -24,6 +24,8 @@
         <h4>Flavor: {{ cucpake["flavor"] }}</h4>
         <h4>Frosting: {{ cupcake["frosting"] }}</h4>
         <h4><b>Price: ${{ cupcake["price"] }}</b></h4>
+        <a href="{{ url_for ('add_cupcake', name=cupcake['name']) }}">
+        </a>
     {% endfor %}
 
 </body>
