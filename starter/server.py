@@ -17,7 +17,9 @@ def all_cupcakes():
 
 @app.route("/order")
 def order():
-    return render_template("order.html", cupcakes = get_cupcakes("order.csv"))
+    cupcakes = get_cupcakes("order.csv")
+    print(cupcakes)
+    return render_template("order.html", cupcakes = cupcakes)
 
 @app.route("/add_cupcake/<name>")
 def add_cupcake(name):

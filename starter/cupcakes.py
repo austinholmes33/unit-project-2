@@ -118,6 +118,7 @@ def write_new_csv(file, cupcakes):
             else:
                 writer.writerow({"size": cupcake.size, "name": cupcake.name, "cake": cupcake.cake, "frosting": cupcake.frosting, "price": cupcake.price, "sprinkles": cupcake.sprinkles})
 
+write_new_csv("order.csv", [])
 write_new_csv("cupcakes.csv", cupcake_list)
 
 def add_cupcake(file, cupcake):
@@ -140,9 +141,10 @@ def get_cupcakes(file):
 
 def find_cupcake(file, name):
     for cupcake in get_cupcakes(file):
+        print(cupcake)
         if cupcake["name"] == name:
             return cupcake
-        return None
+    return None
 
 def add_cupcake_dictionary(file, cupcake):
     with open(file, "a", newline="\n") as csvfile:
