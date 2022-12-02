@@ -5,26 +5,26 @@ app = Flask(__name__)
 
 @app.route("/")
 def home():
-    return render_template("index.html", cupcakes = get_cupcakes("cupcakes.csv"))
+    return render_template("index.html")
 
 @app.route("/cupcakes")
 def all_cupcakes():
-    return render_template("cupcakes.html")
+    return render_template("cupcakes.html", cupcakes = get_cupcakes("cupcakes.csv"))
 
-@app.route("/cupcake_individual")
-def individual_cupcake():
-    return render_template("individual_cupcake.html")
+# @app.route("/cupcake_individual")
+# def individual_cupcake():
+    # return render_template("individual_cupcake.html", cupcakes = find_cupcake("cupcakes.csv", ))
 
 @app.route("/order")
 def order():
-    return render_template("order.html")
+    return render_template("order.html", cupcakes = get_cupcakes("order.csv"))
 
 @app.route("/add_cupcake/<name>")
 def add_cupcake(name):
     cupcake = find_cupcake("cupcakes.csv", name)
 
     if cupcake:
-        add_cupcake_dictionary("orders.csv", cupcake)
+        add_cupcake_dictionary("order.csv", cupcake)
         return redirect(url_for("home"))
     else:
         return "Sorry, cupcake not found."

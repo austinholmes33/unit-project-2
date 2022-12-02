@@ -14,16 +14,16 @@ read_csv("sample.csv")
 
 class Cupcake(ABC):
     size = "regular"
-    def __init__(self, name, cake, frosting, price):
+    def __init__(self, name, cake, frosting, sprinkles, price):
         self.name = name
         self.cake = cake
         self.frosting = frosting
-        self.sprinkles = []
+        self.sprinkles = sprinkles
         self.price = price
 
-    def add_sprinkles(self, *args):
-        for sprinkle in args:
-            self.sprinkles.append(sprinkle)
+    # def add_sprinkles(self, *args):
+    #     for sprinkle in args:
+    #         self.sprinkles.append(sprinkle)
     
     @ abstractmethod 
     def calculate_price(self, quantity):
@@ -42,12 +42,12 @@ class Cupcake(ABC):
 class Mini(Cupcake):
     size = "Mini"
 
-    def __init__(self, name, cake, frosting, price):
-        super().__init__(name, cake, frosting, price)
+    def __init__(self, name, cake, frosting, sprinkles, price):
+        super().__init__(name, cake, frosting, sprinkles, price)
 
-    def add_sprinkles(self, *args):
-        for sprinkle in args:
-            self.sprinkles.append(sprinkle)
+    # def add_sprinkles(self, *args):
+    #     for sprinkle in args:
+    #         self.sprinkles.append(sprinkle)
 
     def calculate_price(self, quantity):
         return super().calculate_price(quantity)
@@ -55,13 +55,13 @@ class Mini(Cupcake):
 class Large(Cupcake):
     size = "Large"
 
-    def __init__(self, name, cake, frosting, filling, price):
-        super().__init__(name, cake, frosting, price)
+    def __init__(self, name, cake, frosting, filling, sprinkles, price):
+        super().__init__(name, cake, frosting, sprinkles, price)
         self.filling = filling
 
-    def add_sprinkles(self, *args):
-        for sprinkle in args:
-            self.sprinkles.append(sprinkle)
+    # def add_sprinkles(self, *args):
+    #     for sprinkle in args:
+    #         self.sprinkles.append(sprinkle)
 
     def calculate_price(self, quantity):
         return super().calculate_price(quantity)
@@ -69,30 +69,30 @@ class Large(Cupcake):
 class Medium(Cupcake):
     size = "Medium"
 
-    def __init__(self, name, cake, frosting, price):
-        super().__init__(name, cake, frosting, price)
+    def __init__(self, name, cake, frosting, sprinkles, price):
+        super().__init__(name, cake, frosting, sprinkles, price)
 
-    def add_sprinkles(self, *args):
-        for sprinkle in args:
-            self.sprinkles.append(sprinkle)
+    # def add_sprinkles(self, *args):
+    #     for sprinkle in args:
+    #         self.sprinkles.append(sprinkle)
 
     def calculate_price(self, quantity):
         return super().calculate_price(quantity)
 
-mini_chocolate = Mini('mini chocolate', 'chocolate', 'vanilla', 1.99)
+mini_chocolate = Mini('mini chocolate', 'chocolate', 'vanilla', 'chocolate', 1.99)
 
-mini_vanilla = Mini("mini vanilla", "vanilla", "vanilla", 1.50)
-mini_vanilla.add_sprinkles("chocolate")
+mini_vanilla = Mini("mini vanilla", "vanilla", "vanilla", "chocolate", 1.50)
+# mini_vanilla.add_sprinkles("chocolate")
 
-mini_cookies_and_cream = Mini("mini cookies and cream", "chocolate", "vanilla", 2.00)
-mini_cookies_and_cream.add_sprinkles("oreo crumbs", "vanilla")
+mini_cookies_and_cream = Mini("mini cookies and cream", "chocolate", "vanilla", "oreo", 2.00)
+# mini_cookies_and_cream.add_sprinkles("oreo crumbs", "vanilla")
 
-medium_triple_chocolate = Medium("medium triple chocolate", "chocolate", "chocolate", 3.50)
+medium_triple_chocolate = Medium("medium triple chocolate", "chocolate", "chocolate", "chocolate", 3.50)
 
-medium_vanilla = Medium("medium vanilla", "vanilla", "chocolate", 3.00)
-medium_vanilla.add_sprinkles("chocolate")
+medium_vanilla = Medium("medium vanilla", "vanilla", "chocolate", "vanilla", 3.00)
+# medium_vanilla.add_sprinkles("chocolate")
 
-large_red_velvet = Large("large red velvet", "red velvet", "cream cheese", None, 4.50)
+large_red_velvet = Large("large red velvet", "red velvet", "cream cheese", None, "red", 4.50)
 
 
 
@@ -118,7 +118,7 @@ def write_new_csv(file, cupcakes):
             else:
                 writer.writerow({"size": cupcake.size, "name": cupcake.name, "cake": cupcake.cake, "frosting": cupcake.frosting, "price": cupcake.price, "sprinkles": cupcake.sprinkles})
 
-# write_new_csv("sample.csv", cupcake_list)
+write_new_csv("cupcakes.csv", cupcake_list)
 
 def add_cupcake(file, cupcake):
     with open(file, "a", newline="\n") as csvfile:

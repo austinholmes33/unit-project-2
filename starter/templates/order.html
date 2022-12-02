@@ -18,5 +18,14 @@
     <div class="order-home-anchor">
     <a href="/">Home</a>
     </div>
+
+    {% for cupcake in cupcakes %}
+    <h3>{{ cupcake["name"] }}</h3>
+    <h4>Cake: {{ cupcake["cake"] }}</h4>
+    <h4>Filling: {{ cupcake["filling"] }}</h4>
+    <h4>Frosting: {{ cupcake["frosting"] }}</h4>
+    <h4><b>Price: ${{ cupcake["price"] }}</b></h4>
+    <h4>Sprinkles: {{ cupcake["sprinkles"] }}</h4>
+    {% endfor %}
 </body>
 </html>

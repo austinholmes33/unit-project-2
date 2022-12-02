@@ -13,10 +13,23 @@
 <body>
     <div class="indivudal-cupcake-header">
         <h3>Cupcake</h3>
-        </div>
+    </div>
     
-        <div class="individual-cupcake-home-anchor">
+    <div class="individual-cupcake-home-anchor">
         <a href="/">Home</a>
-        </div>
+    </div>
+
+    {% for cupcake in cupcakes %}
+        {% if cupcake['name'] == name %}
+            <p>
+                <h3>{{ cupcake["name"] }}</h3>
+                <h4>Cake: {{ cupcake["cake"] }}</h4>
+                <h4>Filling: {{ cupcake["filling"] }}</h4>
+                <h4>Frosting: {{ cupcake["frosting"] }}</h4>
+                <h4><b>Price: ${{ cupcake["price"] }}</b></h4>
+                <h4>Sprinkles: {{ cupcake["sprinkles"] }}</h4>
+            </p>
+        {% endif %}
+    {% endfor %}
 </body>
 </html>
