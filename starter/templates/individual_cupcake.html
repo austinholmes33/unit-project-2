@@ -20,15 +20,15 @@
     </div>
 
     {% for cupcake in cupcakes %}
-        {% if cupcake['name'] == name %}
             <p>
-                <h3>{{ cupcake["name"] }}</h3>
+                <h3>{{ cupcake['name'] }}></h3>
                 <h4>Cake: {{ cupcake["cake"] }}</h4>
                 <h4>Frosting: {{ cupcake["frosting"] }}</h4>
                 <h4><b>Price: ${{ cupcake["price"] }}</b></h4>
                 <h4>Sprinkles: {{ cupcake["sprinkles"] }}</h4>
+                <a href="{{ url_for ('find_cupcake', name=cupcake['name']) }}">
+                    <button>View Cupcake</button>
             </p>
-        {% endif %}
     {% endfor %}
 </body>
 </html>
