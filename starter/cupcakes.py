@@ -139,7 +139,7 @@ def get_cupcakes(file):
         reader = list(reader)
         return reader
 
-def find_cupcake(file, cupcake):
+def find_cupcake(file, name):
     for cupcake in get_cupcakes(file):
         print(cupcake)
         if cupcake["name"] == name:
