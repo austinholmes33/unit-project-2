@@ -11,9 +11,10 @@ def home():
 def all_cupcakes():
     return render_template("cupcakes.html", cupcakes = get_cupcakes("cupcakes.csv"))
 
-@app.route("/cupcake_individual")
+@app.route("/individual_cupcake")
 def individual_cupcake():
     cupcakes = get_cupcakes("view.csv")
+    print(cupcakes)
     return render_template("individual_cupcake.html", cupcakes = cupcakes)
 
 @app.route("/view_cupcake/<name>")
@@ -29,7 +30,7 @@ def view_cupcake(name):
 @app.route("/order")
 def order():
     cupcakes = get_cupcakes("order.csv")
-    print(cupcakes)
+    # print(cupcakes)
     return render_template("order.html", cupcakes = cupcakes)
 
 @app.route("/add_cupcake/<name>")
