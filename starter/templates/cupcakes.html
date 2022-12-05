@@ -28,7 +28,7 @@
         <a href="{{ url_for ('add_cupcake', name=cupcake['name']) }}">
             <button>Add to Cart</button>
         </a>
-        <a href="{{ url_for ('view_cupcake', name=cupcake['name']) }}">
+        <a href="{{ url_for ('individual_cupcake', name=cupcake['name']) }}">
             <button>View Item</button>
         </a>
     {% endfor %}

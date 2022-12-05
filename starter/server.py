@@ -11,21 +11,21 @@ def home():
 def all_cupcakes():
     return render_template("cupcakes.html", cupcakes = get_cupcakes("cupcakes.csv"))
 
-@app.route("/individual_cupcake")
-def individual_cupcake():
-    cupcakes = get_cupcakes("view.csv")
-    print(cupcakes)
-    return render_template("individual_cupcake.html", cupcakes = cupcakes)
-
-@app.route("/view_cupcake/<name>")
-def view_cupcake(name):
+@app.route("/individual_cupcake/<name>")
+def individual_cupcake(name):
+    # cupcakes = get_cupcakes("view.csv")
+    # print(cupcakes)
     cupcake = find_cupcake("cupcakes.csv", name)
+    return render_template("individual_cupcake.html", cupcake = cupcake)
 
-    if cupcake:
-        add_cupcake_dictionary("view.csv", cupcake)
-        return redirect(url_for("individual_cupcake"))
-    else:
-        return "Sorry, cupcake not found."
+# @app.route("/view_cupcake/<name>")
+# def view_cupcake(name):
+
+    # if cupcake:
+    #     add_cupcake_dictionary("view.csv", cupcake)
+    #     return redirect(url_for("individual_cupcake"))
+    # else:
+    #     return "Sorry, cupcake not found."
 
 @app.route("/order")
 def order():
